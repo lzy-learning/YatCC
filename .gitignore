@@ -1,4 +1,11 @@
-build
-env.cmake
+build/
+tmp/
+env.*
+
 **/.antlr
 **/__pycache__
+
+antlr/*
+!antlr/setup.sh
+llvm/*
+!llvm/setup.sh

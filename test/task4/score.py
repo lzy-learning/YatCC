@@ -161,7 +161,7 @@ def score_one(
                 max_score = 1.0
 
             fprint(f"O2 代码执行用时: {answer_time} us")
-            fprint(f"sysu-lang 代码执行用时: {output_time} us")
+            fprint(f"Yat-CC 代码执行用时: {output_time} us")
             if answer_out != output_out:
                 fprint("\n输出不匹配")
                 fprint(">----")

@@ -3,5 +3,5 @@
 int
 main()
 {
-  std::cout << "Hello, SYsU-lang!" << std::endl;
+  std::cout << "Hello, Yat-CC!" << std::endl;
 }
