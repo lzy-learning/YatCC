@@ -22,8 +22,8 @@ fi
 if [ ! -f llvm-18.src.tar.xz ]; then
   wget -O llvm-18.src.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/llvm-18.1.8.src.tar.xz
 fi
-if [ ! -f clang-18.tar.xz ]; then
-  wget -O clang-18.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/clang-18.1.8.src.tar.xz
+if [ ! -f clang-18.src.tar.xz ]; then
+  wget -O clang-18.src.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/clang-18.1.8.src.tar.xz
 fi
 if [ ! -f cmake-18.src.tar.xz ]; then
   wget -O cmake-18.src.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/cmake-18.1.8.src.tar.xz

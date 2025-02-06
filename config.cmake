@@ -26,32 +26,26 @@ set(TASK4_REVIVE ON)
 # ############################################################################ #
 
 # ANTLR4
-if(DEFINED ENV{ANTLR_DIR})
-  message("ANTLR目录为 $ENV{ANTLR_DIR}")
-  set(antlr4-runtime_DIR "$ENV{ANTLR_DIR}/install/lib/cmake/antlr4-runtime")
-  set(antlr4-generator_DIR "$ENV{ANTLR_DIR}/install/lib/cmake/antlr4-generator")
-  set(ANTLR4_JAR_LOCATION "$ENV{ANTLR_DIR}/antlr-4.13.1-complete.jar")
+if(DEFINED ENV{YAT_CC_ANTLR_DIR})
+  set(_antlr_dir "$ENV{YAT_CC_ANTLR_DIR}")
 else()
-  message("ANTLR目录为 ${CMAKE_SOURCE_DIR}/antlr")
-  set(antlr4-runtime_DIR
-      "${CMAKE_SOURCE_DIR}/antlr/install/lib/cmake/antlr4-runtime")
-  set(antlr4-generator_DIR
-      "${CMAKE_SOURCE_DIR}/antlr/install/lib/cmake/antlr4-generator")
-  set(ANTLR4_JAR_LOCATION "${CMAKE_SOURCE_DIR}/antlr/antlr-4.13.1-complete.jar")
+  set(_antlr_dir "${CMAKE_SOURCE_DIR}/antlr")
 endif()
+message("ANTLR目录为 ${_antlr_dir}")
+set(antlr4-runtime_DIR "${_antlr_dir}/install/lib/cmake/antlr4-runtime")
+set(antlr4-generator_DIR "${_antlr_dir}/install/lib/cmake/antlr4-generator")
+set(ANTLR4_JAR_LOCATION "${_antlr_dir}/antlr.jar")
 
-# llvm clang
-if(DEFINED ENV{LLVM_DIR})
-  message("LLVM目录为 $ENV{LLVM_DIR}")
-  set(LLVM_DIR "$ENV{LLVM_DIR}/install/lib/cmake/llvm")
-  set(CLANG_EXECUTABLE "$ENV{LLVM_DIR}/install/bin/clang")
-  set(CLANG_PLUS_EXECUTABLE "$ENV{LLVM_DIR}/install/bin/clang++")
+# LLVM 和 Clang
+if(DEFINED ENV{YAT_CC_LLVM_DIR})
+  set(_llvm_dir "$ENV{YAT_CC_LLVM_DIR}")
 else()
-  message("LLVM目录为 ${CMAKE_SOURCE_DIR}/llvm")
-  set(LLVM_DIR "${CMAKE_SOURCE_DIR}/llvm/install/lib/cmake/llvm")
-  set(CLANG_EXECUTABLE "${CMAKE_SOURCE_DIR}/llvm/install/bin/clang")
-  set(CLANG_PLUS_EXECUTABLE "${CMAKE_SOURCE_DIR}/llvm/install/bin/clang++")
+  set(_llvm_dir "${CMAKE_SOURCE_DIR}/llvm")
 endif()
+message("LLVM目录为 ${_llvm_dir}")
+set(LLVM_DIR "${_llvm_dir}/install/lib/cmake/llvm")
+set(CLANG_EXECUTABLE "${_llvm_dir}/install/bin/clang")
+set(CLANG_PLUS_EXECUTABLE "${_llvm_dir}/install/bin/clang++")
 
 # 测试运行时限（秒）
 set(CTEST_TEST_TIMEOUT 3)
