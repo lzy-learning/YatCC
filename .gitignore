@@ -9,3 +9,8 @@ antlr/*
 !antlr/setup.sh
 llvm/*
 !llvm/setup.sh
+
+.devcontainer/*
+!.devcontainer/devcontainer.json
+!.devcontainer/yatcc.Dockerfile
+!.devcontainer/build-image.sh

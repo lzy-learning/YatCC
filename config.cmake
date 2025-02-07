@@ -26,8 +26,8 @@ set(TASK4_REVIVE ON)
 # ############################################################################ #
 
 # ANTLR4
-if(DEFINED ENV{YAT_CC_ANTLR_DIR})
-  set(_antlr_dir "$ENV{YAT_CC_ANTLR_DIR}")
+if(DEFINED ENV{YatCC_ANTLR_DIR})
+  set(_antlr_dir "$ENV{YatCC_ANTLR_DIR}")
 else()
   set(_antlr_dir "${CMAKE_SOURCE_DIR}/antlr")
 endif()
@@ -37,8 +37,8 @@ set(antlr4-generator_DIR "${_antlr_dir}/install/lib/cmake/antlr4-generator")
 set(ANTLR4_JAR_LOCATION "${_antlr_dir}/antlr.jar")
 
 # LLVM 和 Clang
-if(DEFINED ENV{YAT_CC_LLVM_DIR})
-  set(_llvm_dir "$ENV{YAT_CC_LLVM_DIR}")
+if(DEFINED ENV{YatCC_LLVM_DIR})
+  set(_llvm_dir "$ENV{YatCC_LLVM_DIR}")
 else()
   set(_llvm_dir "${CMAKE_SOURCE_DIR}/llvm")
 endif()

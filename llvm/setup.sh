@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e # Exit on error
-cd $(dirname "$0")
+if [ -z "$YatCC_LLVM_DIR" ]; then
+  cd $(dirname "$0")
+else
+  mkdir -p "$YatCC_LLVM_DIR"
+  cd "$YatCC_LLVM_DIR"
+fi
 
 if [ -d install ]; then
   echo "ALREADY SETUP! - please remove the install directory to reinstall:"

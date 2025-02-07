@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 include(config.cmake)
-project(Yat-CC VERSION 3.0.0.0)
+project(YatCC VERSION 3.0.0.0)
 include(CTest)
 
 # 语言标准

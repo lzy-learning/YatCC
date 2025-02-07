@@ -2,7 +2,7 @@
   <img width="512" src="docs/logo/LOGO.svg">
 </p> -->
 
-# Yat-CC: Yat Compiler Course
+# YatCC: Yat Compiler Course
 
 中山大学（Sun **Yat**-sen University）[编译原理](https://arcsysu.github.io/teach/dcs290/s2024.html)课程实验
 
@@ -36,7 +36,7 @@
 
 ## 在自己的计算机上使用开发容器
 
-你可以在自己的计算机上使用和 GitHub Codespaces 相同的开发容器镜像，[这篇文章](https://arcsysu.github.io/Yat-CC/#/introduction/environment)介绍了如何拉取并使用它。
+你可以在自己的计算机上使用和 GitHub Codespaces 相同的开发容器镜像，[这篇文章](https://arcsysu.github.io/YatCC/#/introduction/environment)介绍了如何拉取并使用它。
 
 ## 手动搭建开发环境
 
@@ -47,15 +47,17 @@
 sudo apt-get update
 sudo apt-get install -y build-essential git python3 cmake ninja-build default-jdk bison flex unzip lld
 # 克隆仓库
-git clone https://github.com/arcsysu/Yat-CC.git -b main --single-branch --depth 1
+git clone https://github.com/arcsysu/YatCC.git -b main --single-branch --depth 1
 # 进入仓库
-cd Yat-CC
+cd YatCC
 # 准备 ANTLR 与 LLVM
 ./antlr/setup.sh
 ./llvm/setup.sh
 ```
 
 然后，使用 VSCode 打开仓库文件夹，即可开始实验。实验所需的 VSCode 插件已经全部列在 [`.vscode/extensions.json`](.vscode/extensions.json) 中，在打开文件夹时，VSCode 会自动提示你安装这些插件，你只需遵照提示点击安装即可。
+
+> 如果不小心错过了这个提示，你总可以在 VSCode 侧边栏的插件面板中搜索 `@recommended` 看到所有推荐的插件。
 
 # 配置
 
@@ -71,4 +73,4 @@ cd Yat-CC
 
 现在，你已经准备好了，请按照每个任务的具体要求，开始你的编译器实验之旅吧！
 
-你可以在这里找到更多的参考文档：[arcsysu.github.io/Yat-CC/](https://arcsysu.github.io/Yat-CC/)。
+你可以在这里找到更多的参考文档：[arcsysu.github.io/YatCC/](https://arcsysu.github.io/YatCC/)。

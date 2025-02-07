@@ -150,7 +150,7 @@ def score_one(
                 raise Error()
 
             fprint(f"O0 代码执行用时: {answer_time} us")
-            fprint(f"Yat-CC 代码执行用时: {output_time} us")
+            fprint(f"YatCC 代码执行用时: {output_time} us")
             if answer_out != output_out:
                 fprint("\n输出不匹配")
                 fprint(">----")
