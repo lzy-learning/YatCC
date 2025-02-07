@@ -21,5 +21,8 @@ cp -r --link $YatCC_LLVM_DIR/llvm llvm/llvm
 cp -r --link $YatCC_LLVM_DIR/clang llvm/clang
 cp -r --link $YatCC_LLVM_DIR/cmake llvm/cmake
 cp -r --link $YatCC_LLVM_DIR/install llvm/install
-docker build -f yatcc.Dockerfile -t yatcc:latest .
-docker tag yatcc:latest yatcc:$(date +%Y-%m-%d.%H-%M-%S.%N)
+docker build -f yatcc.Dockerfile --target base -t yatcc:base .
+docker tag yatcc:base yatcc:base.$(date +%Y-%m-%d.%H-%M-%S.%N)
+docker build -f yatcc.Dockerfile --target full -t yatcc:full .
+docker tag yatcc:full yatcc:full.$(date +%Y-%m-%d.%H-%M-%S.%N)
+docker tag yatcc:full yatcc:latest

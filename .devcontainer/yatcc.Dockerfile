@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM ubuntu:24.04
+FROM ubuntu:24.04 AS base
 
 # 安装依赖
 RUN <<EOF
@@ -10,6 +10,13 @@ apt-get install -y --no-install-recommends \
 apt-get autoremove -y
 apt-get clean -y
 EOF
+
+# 使用 tini 作为开发容器的 PID 1，和 docker run --init 是同样的效果
+ENTRYPOINT ["/bin/tini", "--"]
+CMD ["sleep", "infinity"]
+
+# 完全版和基础版的区别在于预构建的文件，这会显著影响镜像大小
+FROM base AS full
 
 # 复制预构建的文件
 COPY antlr/antlr.jar /dat/antlr/antlr.jar
@@ -23,7 +30,3 @@ COPY llvm/install /dat/llvm/install
 # 设置环境变量
 ENV YatCC_ANTLR_DIR=/dat/antlr \
     YatCC_LLVM_DIR=/dat/llvm
-
-# 使用 tini 作为开发容器的 PID 1，和 docker run --init 是同样的效果
-ENTRYPOINT ["/bin/tini", "--"]
-CMD ["sleep", "infinity"]
