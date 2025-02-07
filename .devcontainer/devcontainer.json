@@ -4,6 +4,8 @@
   "remoteUser": "root",
 
   "image": "yhgu2000/yatcc:latest",
+  "workspaceMount": "type=bind,src=${localWorkspaceFolder},dst=/YatCC",
+  "workspaceFolder": "/YatCC",
 
   // 允许 C/C++ 调试
   "capAdd": ["SYS_PTRACE"],
