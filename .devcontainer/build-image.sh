@@ -17,11 +17,11 @@ mkdir antlr
 cp -rlP $YatCC_ANTLR_DIR/antlr.jar antlr/antlr.jar
 cp -rlP $YatCC_ANTLR_DIR/source antlr/source
 cp -rlP $YatCC_ANTLR_DIR/install antlr/install
-cp -rlP $YatCC_LLVM_DIR/llvm llvm/llvm
-cp -rlP $YatCC_LLVM_DIR/clang llvm/clang
 
 _llvm_install=$YatCC_LLVM_DIR/install
 mkdir llvm llvm/install llvm/install/bin llvm/install/lib
+cp -rlP $YatCC_LLVM_DIR/llvm llvm/llvm
+cp -rlP $YatCC_LLVM_DIR/clang llvm/clang
 cp -rlP $_llvm_install/include llvm/install/include
 cp -rlP -t llvm/install/bin \
   $_llvm_install/bin/clang-18 \

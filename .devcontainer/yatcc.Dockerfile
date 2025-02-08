@@ -24,4 +24,5 @@ COPY llvm /dat/llvm
 
 # 设置环境变量
 ENV YatCC_ANTLR_DIR=/dat/antlr \
-    YatCC_LLVM_DIR=/dat/llvm
+    YatCC_LLVM_DIR=/dat/llvm \
+    PATH=/dat/llvm/install/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
