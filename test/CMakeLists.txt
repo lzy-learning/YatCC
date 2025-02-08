@@ -17,7 +17,8 @@ add_custom_target(
   ${_rtlib_src}
   SOURCES ${_rtlib_src})
 
-file(REAL_PATH ${CMAKE_COMMAND}/../ctest CTEST_COMMAND)
+set(CTEST_COMMAND ${CMAKE_COMMAND}/../ctest)
+cmake_path(NORMAL_PATH CTEST_COMMAND)
 if(NOT EXISTS ${CTEST_COMMAND})
   message(FATAL_ERROR "未找到 CTest 命令，请检查 CMake 是否正确安装。")
 endif()

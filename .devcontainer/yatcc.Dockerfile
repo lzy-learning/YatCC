@@ -19,13 +19,8 @@ CMD ["sleep", "infinity"]
 FROM base AS full
 
 # 复制预构建的文件
-COPY antlr/antlr.jar /dat/antlr/antlr.jar
-COPY antlr/source /dat/antlr/source
-COPY antlr/install /dat/antlr/install
-COPY llvm/llvm /dat/llvm/llvm
-COPY llvm/clang /dat/llvm/clang
-COPY llvm/cmake /dat/llvm/cmake
-COPY llvm/install /dat/llvm/install
+COPY antlr /dat/antlr
+COPY llvm /dat/llvm
 
 # 设置环境变量
 ENV YatCC_ANTLR_DIR=/dat/antlr \

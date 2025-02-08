@@ -45,7 +45,7 @@
 ```bash
 # 安装依赖（以 Ubuntu 24.04 为例）
 sudo apt-get update
-sudo apt-get install -y build-essential git python3 cmake ninja-build default-jdk bison flex unzip lld
+sudo apt-get install -y build-essential git python3 cmake ninja-build default-jdk bison flex unzip lld libzstd-dev
 # 克隆仓库
 git clone https://github.com/arcsysu/YatCC.git -b main --single-branch --depth 1
 # 进入仓库

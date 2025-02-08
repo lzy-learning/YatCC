@@ -44,6 +44,7 @@ else()
 endif()
 message("LLVM目录为 ${_llvm_dir}")
 set(LLVM_DIR "${_llvm_dir}/install/lib/cmake/llvm")
+set(LLVM_INSTALL_DIR "${_llvm_dir}/install")
 set(CLANG_EXECUTABLE "${_llvm_dir}/install/bin/clang")
 set(CLANG_PLUS_EXECUTABLE "${_llvm_dir}/install/bin/clang++")
 
