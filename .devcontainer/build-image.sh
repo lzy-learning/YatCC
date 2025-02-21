@@ -35,12 +35,16 @@ cp -rlP -t llvm/install/bin \
   $_llvm_install/bin/llvm-config
 cp -rlP -t llvm/install/lib \
   $_llvm_install/lib/libclang-cpp*.so* \
-  $_llvm_install/lib/libLLVM*.so*
+  $_llvm_install/lib/libLLVM*.so* \
+  $_llvm_install/lib/clang
 cp -rlP $_llvm_install/libexec llvm/install/libexec
 cp -rlP $_llvm_install/share llvm/install/share
 
-docker build -f yatcc.Dockerfile --target base -t yatcc:base .
-docker tag yatcc:base yatcc:base.$(date +%Y-%m-%d.%H-%M-%S.%N)
-docker build -f yatcc.Dockerfile --target full -t yatcc:full .
-docker tag yatcc:full yatcc:full.$(date +%Y-%m-%d.%H-%M-%S.%N)
-docker tag yatcc:full yatcc:latest
+_version=$(date -u +%Y%m%dT%H%M%SZ)
+buildah build --layers -f yatcc.Dockerfile --target base -t yatcc:base .
+buildah tag yatcc:base yatcc:base.$_version
+buildah build --layers -f yatcc.Dockerfile --target full -t yatcc:full .
+buildah tag yatcc:full yatcc:full.$_version
+buildah tag yatcc:full yatcc:dc.$_version
+buildah tag yatcc:full yatcc:dc.latest
+buildah tag yatcc:full yatcc:latest
