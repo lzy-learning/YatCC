@@ -12,5 +12,5 @@ llvm/*
 
 .devcontainer/*
 !.devcontainer/devcontainer.json
-!.devcontainer/yatcc.Dockerfile
+!.devcontainer/yatcc.Containerfile
 !.devcontainer/build-image.sh
