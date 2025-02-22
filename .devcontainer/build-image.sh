@@ -41,9 +41,9 @@ cp -rlP $_llvm_install/libexec llvm/install/libexec
 cp -rlP $_llvm_install/share llvm/install/share
 
 _version=$(date -u +%Y%m%dT%H%M%SZ)
-buildah build --layers -f yatcc.Dockerfile --target base -t yatcc:base .
+buildah build --layers -f yatcc.Containerfile --target base -t yatcc:base .
 buildah tag yatcc:base yatcc:base.$_version
-buildah build --layers -f yatcc.Dockerfile --target full -t yatcc:full .
+buildah build --layers -f yatcc.Containerfile --target full -t yatcc:full .
 buildah tag yatcc:full yatcc:full.$_version
 buildah tag yatcc:full yatcc:dc.$_version
 buildah tag yatcc:full yatcc:dc.latest
