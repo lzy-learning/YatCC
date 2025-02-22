@@ -3,7 +3,7 @@ FROM ubuntu:24.04 AS base
 
 # 安装依赖
 RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends && \
+    apt-get install -y --no-install-recommends \
         ca-certificates tini build-essential git python3 \
         cmake ninja-build default-jdk bison flex lld && \
     apt-get autoremove -y && \
