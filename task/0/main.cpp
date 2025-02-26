@@ -3,5 +3,7 @@
 int
 main()
 {
-  std::cout << "Hello, YatCC!" << std::endl;
+  // TODO
+  // 使用 DeepSeek-R1 模型来自动生成输出 "Hello, YatCC!" 字符串的代码语句
+  
 }
