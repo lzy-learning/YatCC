@@ -14,3 +14,4 @@ llvm/*
 !.devcontainer/devcontainer.json
 !.devcontainer/yatcc.Containerfile
 !.devcontainer/build-image.sh
+!.devcontainer/upload-images.sh
