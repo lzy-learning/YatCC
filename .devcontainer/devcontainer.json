@@ -3,7 +3,7 @@
   "name": "YatCC",
   "remoteUser": "root",
 
-  "image": "yhgu2000/yatcc:latest",
+  "image": "registry.cn-guangzhou.aliyuncs.com/yhgu2000/yatcc:latest",
   "workspaceMount": "type=bind,src=${localWorkspaceFolder},dst=/YatCC",
   "workspaceFolder": "/YatCC",
 
