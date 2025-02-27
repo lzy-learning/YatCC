@@ -11,6 +11,12 @@
 #include "StaticCallCounter.hpp"
 #include "StaticCallCounterPrinter.hpp"
 
+#include "AnalysisPass.hpp"
+#include "FunctionInliner.hpp"
+#include "LICM.hpp"
+#include "LoopUnrolling.hpp"
+#include "TransformPass.hpp"
+
 void
 opt(llvm::Module& mod)
 {
@@ -33,11 +39,28 @@ opt(llvm::Module& mod)
 
   // 添加分析pass到管理器中
   mam.registerPass([]() { return StaticCallCounter(); });
+  mam.registerPass([]() { return Store2LoadAnalysis(); });
+  mam.registerPass([]() { return Load2StoreAnalysis(); });
+  mam.registerPass([]() { return CallGraphAnalysis(); });
+  mam.registerPass([]() { return MyCFGAnalysis(); });
 
   // 添加优化pass到管理器中
-  mpm.addPass(StaticCallCounterPrinter(llvm::errs()));
+  mpm.addPass(StrengthReduction(llvm::errs()));
   mpm.addPass(Mem2Reg());
+  mpm.addPass(ConstantPropagate(llvm::errs()));
   mpm.addPass(ConstantFolding(llvm::errs()));
+  mpm.addPass(ControlFlowSimplification(llvm::errs()));
+  mpm.addPass(AlgebraicIdentities(llvm::errs()));
+  mpm.addPass(LoopInvariantCodeMotion(llvm::errs()));
+  mpm.addPass(FunctionInliner(llvm::errs()));
+  mpm.addPass(LoopUnrolling(llvm::errs()));
+  mpm.addPass(LoopInvariantCodeMotion(llvm::errs()));
+  mpm.addPass(EDC(llvm::errs()));
+  mpm.addPass(CSE(llvm::errs()));
+  mpm.addPass(OptimizeConstantArray(llvm::errs()));
+  mpm.addPass(EDC(llvm::errs()));
+  mpm.addPass(StaticCallCounterPrinter(llvm::errs()));
+
   // 运行优化pass
   mpm.run(mod, mam);
 }

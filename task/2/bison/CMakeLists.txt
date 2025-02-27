@@ -23,4 +23,4 @@ target_include_directories(task2 PRIVATE . ../common
                                          ${CMAKE_CURRENT_BINARY_DIR})
 target_include_directories(task2 SYSTEM PRIVATE ${LLVM_INCLUDE_DIRS})
 
-target_link_libraries(task2 antlr4_static LLVM)
+target_link_libraries(task2 antlr4_static ${LLVM_LIBS})

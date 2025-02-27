@@ -26,7 +26,27 @@ enum Id
   SEMI,
   EQUAL,
   PLUS,
-  COMMA
+  COMMA,
+  MINUS,
+  STAR,
+  SLASH,    // /
+  PERCENT,  // %
+  LESS,   // <
+  GREATER,    // >
+  LESSEQUAL,    // <=
+  GREATEREQUAL, // >=
+  EQUALEQUAL, // ==
+  EXCLAIMEQUAL, // !=
+  AMPAMP,   // &&
+  PIPEPIPE, // ||
+  EXCLAIM,    // !
+  IF,
+  ELSE,
+  WHILE,
+  BREAK,
+  CONTINUE,
+  CONST,   // 关键字 const
+  VOID
 };
 
 const char*
@@ -46,5 +66,10 @@ extern G g;
 
 int
 come(int tokenId, const char* yytext, int yyleng, int yylineno);
+
+std::string get_filename(const std::string& line);
+int get_line_number(const std::string& line);
+int handle_preprocessed_info(const char* yytext, int yyleng);
+int handle_wrap_and_space(const char* yytext, int yyleng);
 
 } // namespace lex

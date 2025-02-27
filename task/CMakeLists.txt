@@ -4,16 +4,10 @@ find_package(BISON 3.8)
 find_package(antlr4-runtime 4.13)
 find_package(antlr4-generator 4.13)
 
-if(NOT EXISTS ${LLVM_INSTALL_DIR})
-  message(FATAL_ERROR "未找到 LLVM 安装目录！请检查 YatCC_LLVM_DIR 环境变量。")
-endif()
-add_library(LLVM INTERFACE IMPORTED)
-target_include_directories(LLVM SYSTEM AFTER INTERFACE
-  ${LLVM_INSTALL_DIR}/include)
-target_link_directories(LLVM INTERFACE ${LLVM_INSTALL_DIR}/lib)
-target_compile_definitions(LLVM INTERFACE
-  -D_GNU_SOURCE -D_DEBUG -D_GLIBCXX_ASSERTIONS -D__STDC_CONSTANT_MACROS)
-target_link_libraries(LLVM INTERFACE libLLVM.so)
+find_package(LLVM 17 REQUIRED)
+llvm_map_components_to_libnames(LLVM_LIBS core support transformutils irreader
+                                passes)
+# 如何列出所有的component：`llvm-config --components`
 
 macro(add_task task)
   if(NOT STUDENT_ID STREQUAL "" OR NOT STUDENT_NAME STREQUAL "")

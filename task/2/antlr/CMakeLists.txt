@@ -32,4 +32,4 @@ target_include_directories(
 target_include_directories(task2 SYSTEM PRIVATE ${ANTLR4_INCLUDE_DIR}
                                                 ${LLVM_INCLUDE_DIRS})
 
-target_link_libraries(task2 antlr4_static LLVM)
+target_link_libraries(task2 antlr4_static ${LLVM_LIBS})
